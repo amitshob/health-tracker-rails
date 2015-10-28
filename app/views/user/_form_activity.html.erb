@@ -1,0 +1,5 @@
+<%= bootstrap_form_for :activity_user, url: activity_users_path, remote: true do |f| %>
+    <%= f.select :activity_id, Activity.array, { label: "Choose your activity"} %>
+    <%= f.text_field :duration, autocomplete: "off" %>
+    <%= f.submit "Add Activity" %>
+<% end %>

@@ -1,0 +1,53 @@
+ <h4> Profile for <%=  @user.username%> </h4>
+
+ <div class="container">
+   <div class="row">
+     <div class="col-sm-6 ">
+       <h6> Today's Activities </h6>
+       <%= render 'form_activity'%>
+
+       <table class="table table-hover">
+         <thead>
+           <th>Activity</th>
+           <th>Duration</th>
+           <th>Calories Burned</th>
+         </thead>
+         <tbody id="activity-table-body">
+           <% @user.activity_users.each do |activity_user| %>
+             <tr>
+               <td><%= activity_user.activity.activity %></td>
+               <td><%= activity_user.duration %> min</td>
+               <td><%= activity_user.activity.calories_per_min %></td>
+             </tr>
+           <% end %>
+         </tbody>
+
+       </table>
+
+     </div>
+
+     <div class="col-sm-6 ">
+       <h6> Today's Consumption </h6>
+       <%= render 'form_food'%>
+
+       <table class="table table-hover">
+         <thead>
+           <th>Food</th>
+           <th>Amount</th>
+           <th>Calories</th>
+         </thead>
+         <tbody>
+           <!-- <% @user.activity_users.each do |activity_user| %>
+             <tr>
+               <td><%= activity_user.activity.activity %></td>
+               <td><%= activity_user.duration %> min</td>
+               <td><%= activity_user.activity.calories_per_min %></td>
+             </tr>
+           <% end %> -->
+         </tbody>
+
+       </table>
+
+     </div>
+   </div>
+ </div>
