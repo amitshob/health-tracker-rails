@@ -6,23 +6,36 @@
        <h6> Today's Activities </h6>
        <%= render 'form_activity'%>
 
-       <table class="table table-hover">
+       <table class="table table-hover" id="activity_sum_table" >
          <thead>
            <th>Activity</th>
            <th>Duration</th>
-           <th>Calories Burned</th>
+           <th>Calories Burned/lb</th>
          </thead>
+
          <tbody id="activity-table-body">
            <% @user.activity_users.each do |activity_user| %>
-             <tr>
-               <td><%= activity_user.activity.activity %></td>
-               <td><%= activity_user.duration %> min</td>
-               <td><%= activity_user.activity.calories_per_min %></td>
-             </tr>
+           <tr>
+             <td><%= activity_user.activity.activity %></td>
+             <td><%= activity_user.duration %> min</td>
+             <td><%= (activity_user.activity.calories_per_min * activity_user.duration) %></td>
+           </tr>
            <% end %>
          </tbody>
-
        </table>
+    <h2> Total Calorie Expenditure</h2>
+      <script>
+        $('#activity_sum_table tr:not(:last-child)').bind('keyup change', function() {
+          var $table = $(this).closest('table');
+          var total_expenditure = 0;
+
+          $table.find('tr:not(:last-child) input:text').each(function() {
+            total_expenditure += +$(this).val();
+          });
+
+          $table.find('input[name="total_expenditure"]').val(total_expenditure);
+        });
+      </script>
 
      </div>
 
@@ -36,7 +49,7 @@
            <th>Amount</th>
            <th>Calories</th>
          </thead>
-         <tbody>
+         <tbody id="food-table-body">
            <!-- <% @user.activity_users.each do |activity_user| %>
              <tr>
                <td><%= activity_user.activity.activity %></td>

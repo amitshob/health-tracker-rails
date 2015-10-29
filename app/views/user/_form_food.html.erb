@@ -1,6 +1,5 @@
 <%= bootstrap_form_for(:activity_user, url: new_activity_user_path) do |f| %>
+    <%= f.select :food_id, Food.array, { label: "Select Food Item"} %><br><br><br><br>
 
-    <%= f.text_field :food_item, autofocus: true %>
-    <%= f.text_field :calories, autocomplete: "off" %>
     <%= f.submit "Add Food" %>
 <% end %>

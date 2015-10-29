@@ -8,7 +8,14 @@
 activities = [
   ["Cycling, mountain bike, bmx", 1],
   ["Cycling, <10 mph, leisure bicycling", 0.3],
-  ["Cycling, >20 mph, racing", 1.5]
+  ["Cycling, >20 mph, racing", 1.5],
+  ["Running, 3-5 mph, slow jog", 115],
+  ["Running, 5-7 mph, run", 95],
+  ["Running, 7-10 mph, slow jog", 87],
+  ["House M.D marathon", 1],
+  ["Arguing", 150],
+  ["Silent treatment", 87],
+  ["Hopping", 100]
 ]
 
 activities.each do |activity, cpm|
@@ -21,6 +28,6 @@ foods = [
   ["Rice", 235]
 ]
 
-foods.each do |food, calories|
-  Food.create(activity: food_item, calories: calories)
+foods.each do |food_item, calories|
+  Food.create(food_item: food_item, calories: calories)
 end
