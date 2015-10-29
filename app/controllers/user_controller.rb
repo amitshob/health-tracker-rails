@@ -2,6 +2,8 @@ class UserController < ApplicationController
   before_action :authenticate_user!
   def index
     @user = current_user
-    binding.pry
+
+    @total_exp = @user.total_expend
+
   end
 end

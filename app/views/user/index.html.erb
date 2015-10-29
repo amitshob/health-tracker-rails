@@ -18,24 +18,13 @@
            <tr>
              <td><%= activity_user.activity.activity %></td>
              <td><%= activity_user.duration %> min</td>
-             <td><%= (activity_user.activity.calories_per_min * activity_user.duration) %></td>
+             <td><%= activity_user.multiply %></td>
            </tr>
            <% end %>
          </tbody>
        </table>
-    <h2> Total Calorie Expenditure</h2>
-      <script>
-        $('#activity_sum_table tr:not(:last-child)').bind('keyup change', function() {
-          var $table = $(this).closest('table');
-          var total_expenditure = 0;
-
-          $table.find('tr:not(:last-child) input:text').each(function() {
-            total_expenditure += +$(this).val();
-          });
-
-          $table.find('input[name="total_expenditure"]').val(total_expenditure);
-        });
-      </script>
+    <h2>Total Calorie Expenditure</h2>
+    <h2><%= @total_exp %></h2>
 
      </div>
 
