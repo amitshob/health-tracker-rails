@@ -14,3 +14,13 @@ activities = [
 activities.each do |activity, cpm|
   Activity.create(activity: activity, calories_per_min: cpm)
 end
+
+foods = [
+  ["Banana", 105],
+  ["Yogurt 1 cup", 232],
+  ["Rice", 235]
+]
+
+foods.each do |food, calories|
+  Food.create(activity: food_item, calories: calories)
+end
