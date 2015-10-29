@@ -7,4 +7,12 @@ class ActivityUser < ActiveRecord::Base
     return mult
   end
 
+  def self.total_expend
+    total = 0
+    all.each do |activity_user|
+      total += activity_user.multiply
+    end
+    return total
+  end
+
 end

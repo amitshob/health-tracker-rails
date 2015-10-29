@@ -14,10 +14,11 @@ class User < ActiveRecord::Base
   validates_presence_of :username, :gender, :dob, :weight, :height
 
   def total_expend
-    total_calories = 300
+    total_calories = 0
 
     # self.activities.each do |activity|
     #   mult = activity.calories_per_min*activity.duration
+    #
     #   total_calories += mult
     # end
   end
